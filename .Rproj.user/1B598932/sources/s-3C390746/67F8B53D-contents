@@ -1,0 +1,24 @@
+library(devtools)
+document()
+library(styler)
+styler::style_pkg()
+library(lintr)
+lintr::lint_package()
+library(roxygen2)
+library("tes")
+
+
+
+roxygen2::roxygenize("/home/bio-xtt/Desktop/SgsAnndata")
+check("/home/bio-xtt/Desktop/SgsAnndata")
+lintr::lint_package()
+styler::style_pkg()
+build("/home/bio-xtt/Desktop/SgsAnndata")
+
+echo "# SgsAnndata" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/bio-xtt/SgsAnndata.git
+git push -u origin main
